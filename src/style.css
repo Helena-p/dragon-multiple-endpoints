@@ -1,48 +1,105 @@
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    min-height: 100vh;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+ul[class],
+ol[class] {
+    list-style-type: none;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+    width: 5rem;
+    height: 5rem;
+    z-index: 1;
 }
 
 a {
-    color: teal;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
 }
 
-.article-container {
-    width: 100%;
-    max-width: 40rem;
-    height: auto;
-    margin: auto;
+body {
+    background-image: url('data:image/svg+xml,%3Csvg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M0 0h16v2h-6v6h6v8H8v-6H2v6H0V0zm4 4h2v2H4V4zm8 8h2v2h-2v-2zm-8 0h2v2H4v-2zm8-8h2v2h-2V4z" fill="%239C92AC" fill-opacity="0.4" fill-rule="evenodd"/%3E%3C/svg%3E');
+    padding: 2rem;
+    font-family: "Lora", serif;
+    font-size: 1.2rem;
+    line-height: 1.5;
 }
 
-.article-container__box {
-    padding: 1em;
+.spacer {
+    padding-top: 3rem;
 }
 
-.header {
-    color: teal;
-    font-weight: 400;
-    text-align: center;
-    text-transform: uppercase;
-    padding: 2em;
+section {
+    background: #fff;
+    border-radius: 5px;
+    padding: 3vmin;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.header-secondary,
-.header-tertiary {
-    color: #333;
+header {
+    display: flex;
+    align-items: center;
+    border-bottom: 4px solid #bf360c;
+    justify-self: flex-start;
+}
+
+h1 {
+    position: relative;
+    font-size: 2rem;
+}
+
+h1:first-letter {
+    font-size: 3.6rem;
+}
+
+.app {
+    max-width: 60ch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    margin-right: auto;
+    color: #bf360c;
+    border-bottom: 2px solid #bf360c;
+}
+
+.author {
+    margin-right: auto;
+    font-weight: bolder;
+    padding: 2rem 0 0;
+}
+
+.bio {
+    font-size: 0.8rem;
     font-style: italic;
-}
-
-.header-teriary {
-    font-weight: lighter;
-}
-
-.paragraph {
     color: #555;
+    padding-bottom: 1rem;
 }
 
-.error-message {
-    text-align: center;
-    color: #333;
-    font-style: italic;
+small {
+    font-size: 0.8rem;
+    margin-right: auto;
+    color: #777;
+    padding-bottom: 0.5rem;
 }
