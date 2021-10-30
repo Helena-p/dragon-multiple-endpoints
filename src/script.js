@@ -22,8 +22,7 @@ const errorHandler = (error) => {
 };
 
 const renderArticles = (data) => {
-    let { articles } = { ...data[0] };
-    let { authors } = { ...data[1] };
+    let { articles, authors } = { ...data[0], ...data[1] };
 
     if (!articles || !articles.length) errorHandler();
 
