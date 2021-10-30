@@ -1,3 +1,5 @@
+import { cleanHTML } from "./sanitizer.js";
+
 const app = document.querySelector(".app");
 const endpointArticles = "https://vanillajsacademy.com/api/dragons.json";
 const endpointBio = "https://vanillajsacademy.com/api/dragons-authors.json";
@@ -25,22 +27,24 @@ const renderArticles = (data) => {
 
     if (!articles || !articles.length) errorHandler();
 
-    app.innerHTML = `
-  ${articles
-      .map((article) => {
-          let bio = findAuthor(article.author, authors).bio;
+    let htmlString = `
+    ${articles
+        .map((article) => {
+            let bio = findAuthor(article.author, authors).bio;
 
-          return `
-    <h2 class="spacer">
-      <a href=${article.url}>${article.title}</a>
-    </h2>
-    <p class="author">By ${article.author}</p>   
-    <p class="bio">${bio}</p>
-    <p>${article.article}</p>
-    <small>${article.pubdate}</small>`;
-      })
-      .join("")}
-  `;
+            return `
+            <h2 class="spacer">
+                <a href=${article.url}>${article.title}</a>
+            </h2>
+                <p class="author">By ${article.author}</p>   
+                <p class="bio">${bio}</p>
+                <p>${article.article}</p>
+                <small>${article.pubdate}</small>`;
+        })
+        .join("")}
+                `;
+
+    app.innerHTML = cleanHTML(htmlString);
 };
 
 const getArticles = async () => {
